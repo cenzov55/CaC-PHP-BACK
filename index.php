@@ -9,5 +9,6 @@ function dd($data)
         echo '</pre>';
         exit;
 }
+if($_SERVER['REQUEST_METHOD'] == 'GET') UsuarioController::index();
 
-UsuarioController::index();
+if($_SERVER['REQUEST_METHOD'] == 'POST') UsuarioController::getUsuarios();

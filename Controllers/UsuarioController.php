@@ -13,4 +13,16 @@ class UsuarioController{
             Database::cerrarConexion();
         }
     }
+
+    public static function getUsuarios(){
+        try {
+            $usuarios = Usuario::getAll();
+            return json_encode($usuarios);
+        } catch (\Throwable $th) {
+            return json_encode(['mensaje'=>"Error al buscar Usuarios: ".$th->getMessage()]);
+        }finally{
+            Database::cerrarConexion();
+        }
+    }
+
 }
